@@ -1,0 +1,74 @@
+@model IEnumerable<AtlasP.Models.Modality>
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <!-- Hero Section Begin -->
+    <section class="hero-section">
+        <div class="hero-items owl-carousel">
+            <div class="single-hero-item set-bg" data-setbg="img/imagemteste1.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="hero-text">
+                                <h2>ACADEMIA</h2>
+                                <h1>ATLAS</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single-hero-item set-bg" data-setbg="img/imagemteste2.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="hero-text">
+                                <h2>Junte-se a nós</h2>
+                                <h1>ACADEMIA ATLAS</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single-hero-item set-bg" data-setbg="img/imagemteste3.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="hero-text">
+                                <h2>Professor</h2>
+                                <h1>Marquinho</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero End -->
+
+    <!-- Feature Section Begin -->
+    <section class="feature-section">
+        <div class="container-fluid">
+            <div class="row">
+                @{
+                    List<string> imgs = new(){"img/feature/feature-1.jpg", "img/feature/feature-2.jpg", "img/feature/feature-3.jpg"};
+                    int i = 0;
+                }
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4">
+                        <div class="feature-item set-bg" data-setbg="@imgs[i]">
+                            <h3>@item.Name</h3>
+                            <a asp-action="Schedule" asp-fragment="@item.Name" class="primary-btn class-btn">Leia mais</a>
+                        </div>
+                    </div>
+                    i += 1;
+                    if (i == 3)
+                        i = 0;
+                }
+            </div>
+        </div>
+    </section>
+    <!-- Feature Section End -->
+
+    

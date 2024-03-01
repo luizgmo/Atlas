@@ -1,0 +1,63 @@
+@model IEnumerable<AtlasP.Models.Photo>
+@{
+    ViewData["Title"] = "Gallery";
+}
+
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg spad" data-setbg="../img/foto-cabeçalho.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <h2>Nossa Galeria</h2>
+                    <div class="breadcrumb-controls">
+                        <a><i class="fa fa-home"></i> Início</a>
+                        <span>Galeria</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb End -->
+
+<!-- Gallery Section Begin -->
+<section class="gallery-section spad">
+    <div class="container">
+        <div class="row gallery-filter">
+
+            @foreach (var photo in Model)
+            {
+                <div class="col-lg-4 col-sm-6">
+                    <div class="gallery-item">
+                        <img src="@photo.Image" alt="">
+                        <div class="gi-hover-warp">
+                            <div class="gi-hover">
+                                <a href="@photo.Image" class="image-popup"><i
+                                    class="fa fa-search-plus"></i></a>
+                                <h6>@photo.Name</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+<!-- Gallery Section End -->
+
+<!-- Cta Section Begin -->
+<section class="cta-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="cta-text">
+                    <h3>Comece hoje!</h3>
+                    <p>Ambiente de relações amigáveis.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Cta Section End -->

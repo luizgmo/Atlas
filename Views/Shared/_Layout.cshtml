@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>AtlasP - @ViewData["Title"]</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="~/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="~/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/style.css" type="text/css">
+</head>
+
+
+<body>
+    <!-- Header Section Begin -->
+    <header class="header-section @(ViewBag.Title != "Index" ? "header-normal" : "")">
+        <div class="container-fluid">
+            <div class="logo">
+                <a asp-action="Index" class="logonome">Atlas</a>
+            </div>
+            <div class="top-social">
+                <a target="_blank" href="https://www.facebook.com/people/ATLAS-Centro-de-reabilita%C3%A7%C3%A3o-terapias-e-treinamento/100057121253495/"><i class="fa fa-facebook"></i></a>
+                 <a target="_blank" href="https://wa.link/azcpuc"><i class="fa fa-whatsapp"></i></a>
+                <a target="_blank" href="https://www.instagram.com/atlascentrodetreinamento/"><i class="fa fa-instagram"></i></a>
+            </div>
+            <div class="container">
+                <div class="nav-menu">
+                    <nav class="mainmenu mobile-menu">
+                        <ul>
+                            <li>
+								<a asp-action="Index">Início</a>
+							</li>
+                            <li>
+								<a asp-action="About">Sobre Nós</a>
+							</li>
+                            <li>
+								<a asp-action="Schedule">Modalidades</a>
+							</li>
+                            <li>
+								<a asp-action="Gallery">Galeria</a>
+							</li>
+                            <li>
+								<a asp-action="Contact">Contato</a>
+							</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    @RenderBody()
+
+
+    <!-- Footer Section Begin -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="footer-logo-item">
+                        <div class="f-logo">
+                            <a asp-action="Index"><h2 class="h2atlas">Atlas</h2></a>
+                        </div>
+                        
+                        <div class="social-links">
+                            <h6>Redes Sociais</h6>
+                            <a target="_blank" href="https://www.facebook.com/people/ATLAS-Centro-de-reabilita%C3%A7%C3%A3o-terapias-e-treinamento/100057121253495/"><i class="fa fa-facebook"></i></a>
+
+                            <a target="_blank" href="https://wa.link/azcpuc"><i class="fa fa-whatsapp"></i></a>
+
+                            <a target="_blank" href="https://www.instagram.com/atlascentrodetreinamento/"><i class="fa fa-instagram"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="footer-widget">
+                        <a asp-action="Schedule"><h5>Modalidades</h5></a>
+                        <ul class="workout-program">
+                            <li><a>Musculação</a></li>
+                            <li><a>Pilates</a></li>
+                            <li><a>Fisioterapia</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-widget">
+                        <a asp-action="Contact"><h5>Contatos</h5></a>
+                        <ul class="footer-info">
+                            <li>
+                                <i class="fa fa-phone"></i>
+                                <span>Telefone:</span>
+                                (14) 3438-1316
+                            </li>
+                            <li>
+                                <i class="fa fa-map-marker"></i>
+                                <span>Endereço</span>
+                                Avenida Industrial, José Irineu Ortigosa, 187, Barra Bonita, SP
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+    <!-- Footer Section End -->
+    
+    <!-- Js Plugins -->
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/mixitup.min.js"></script>
+    <script src="~/js/jquery.nice-select.min.js"></script>
+    <script src="~/js/jquery.slicknav.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/masonry.pkgd.min.js"></script>
+    <script src="~/js/main.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

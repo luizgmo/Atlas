@@ -1,0 +1,78 @@
+@model IEnumerable<AtlasP.Models.Value>
+@{
+    ViewData["Title"] = "Contact";
+}
+
+
+    <!-- Map Section Begin -->
+    <div class="contact-map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6199.887714973067!2d-48.56722930430107!3d-22.486343932053042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c74f825cdc4377%3A0x1af8629cf0ffae95!2sAv.%20Dr.%20Jos%C3%A9%20Erineu%20Ortigosa%2C%20187%20-%20Distrito%20Industrial%20I%2C%20Barra%20Bonita%20-%20SP%2C%2017340-000!5e0!3m2!1spt-BR!2sbr!4v1660143742259!5m2!1spt-BR!2sbr"
+            height="530" style="border: 0" allowfullscreen=""></iframe>
+
+    </div>
+    <!-- Map Section End -->
+
+    <!-- Contact Section Begin -->
+    <section class="contact-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="contact-info">
+                        <h4>Informações</h4>
+                        <ul>
+                            <li><i class="fa fa-phone"></i>(14) 3438-1316</li>
+                            <li><i class="fa fa-envelope"></i>marquinho@gmail.com</li>
+                            <li><i class="fa fa-map-marker"></i> Avenida Industrial, José Irineu Ortigosa, 187, Barra Bonita, SP</li>
+                        </ul>
+                    </div>
+                </div>
+               <div class="col-lg-4">
+                   <div class="contact-info">
+                       <h4>Horários</h4>
+                       <ul>
+                            <li><i class="fa fa-circle-o"></i>Dias de Semana: 07h-11h / 15h-21h</li>
+                            <li><i class="fa fa-circle-o"></i>Sábados: 07h-11h</li> 
+                            <li><i class="fa fa-circle-o"></i>Domingos: Fechado</li> 
+                       </ul>
+                   </div>
+               </div>
+               <div class="col-lg-8">
+                   <div class="contact-info">
+                       <h4>Entre em Contato</h4>
+                       <p>Entre em contato conosco para saber mais sobre nossos produtos e serviços. </p>
+                        <p>Aqui você tem os melhores profissionais que darão total apoio em suas atividades, </p>
+                        <p>além de proporcionarem um ambiente harmonioso. Comece agora!</p>
+                   </div>
+               </div>
+               <div class="col-lg-4">
+                   <div class="contact-info">
+                       <h4>Valores</h4>
+                       <ul>
+                           @foreach (var value in Model)
+                           {
+                              <li><i class="fa fa-circle-o"></i>@value.Name dias por semana: R$@value.Price</li> 
+                           }
+                       </ul>
+                   </div>
+               </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
+    <!-- Cta Section Begin -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cta-text">
+                        <h3>Comece hoje!</h3>
+                        <p>Entre em contato já!</p>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Cta Section End -->

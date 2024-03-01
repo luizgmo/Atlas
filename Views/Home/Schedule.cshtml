@@ -1,0 +1,62 @@
+@model List<AtlasP.Models.Modality>
+@{
+    ViewData["Title"] = "Schedule";
+}
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg spad" data-setbg="../img/foto-cabeçalho.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <h2>MODALIDADES</h2>
+                        <div class="breadcrumb-controls">
+                            <a><i class="fa fa-home"></i> Início</a>
+                            <span>Modalidades</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb End -->
+
+    <!-- Class Time Section Begin -->
+        @foreach (var modality in Model)
+            {
+                <section id="@modality.Name" class="classtime-section class-time-table spad @(modality.Id == Model.ToArray()[Model.Count-1].Id ? "pb-5" : "") ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <div class="section-title">
+                                <h2>@modality.Name</h2>
+                                <p>@modality.Description</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <img style="display:block; height:100%; padding-top:0;" class="classes-item w-100" src="@modality.Image" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </section>
+            }  
+
+    <!-- Cta Section Begin -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cta-text">
+                        <h3>Comece hoje!</h3>
+                        <p>Modalidades diferentes para todos!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Cta Section End -->

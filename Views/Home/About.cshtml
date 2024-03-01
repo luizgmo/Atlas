@@ -1,0 +1,125 @@
+
+@{
+    ViewData["Title"] = "About";
+}
+
+  <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg spad" data-setbg="../img/foto-cabeçalho.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <h2>Sobre Nós</h2>
+                        <div class="breadcrumb-controls">
+                            <a><i class="fa fa-home"></i> Início</a>
+                            <span>Sobre Nós</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb End -->
+
+    <!-- Aboutus Section Begin -->
+    <section class="aboutus-section spad">
+        <div class="container">
+            <div class="aboutus-page-text">
+                    <div class="row">
+                        <div class="col-xl-9 col-lg-10 m-auto">
+                        <div class="section-title">
+                            <h2>Academia Atlas</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="about-us">
+                            <h4>SOBRE NÓS</h4>
+                            <p>Somos uma academia com um conceito de saúde em primeiro lugar, trabalhamos a 
+                                individualidade como principal foco em  nossas prescrições de treinamento e 
+                                reabilitação.
+                            </p>
+                            <p>Com o nosso trabalho, os clientes alcançam os melhores resultados e recebem
+                                toda a atenção dos profissionais da área. A academia contém toda infraestrutura
+                                necessária para a realização de seu treino. Nosso objetivo é transformar a 
+                                vida das pessoas de forma geral, ou seja, tanto promovendo resultados físicos
+                                na prática dos exercícios propostos pelo profissional, tanto promovendo uma
+                                interação entre as pessoas do ambiente, fornecendo experiências saudáveis.
+                            </p>
+                            <p>Nossa equipe conta com profissionais especializados, competentes, dedicados e
+                                apaixonados no serviço que oferecem. Também realizam o trabalho com muito
+                                respeito, honestidade, transparência, ética, responsabilidade e comprometimento.
+                            </p>    
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="about-quality">
+                            <h4>NOSSAS CARACTERÍSTICAS</h4>
+                            <ul>
+                                <li><i class="fa fa-check-circle-o"></i>Saúde e bem-estar em primeiro lugar</li>
+                                <li><i class="fa fa-check-circle-o"></i>Ótimo relacionamento com o cliente</li>
+                                <li><i class="fa fa-check-circle-o"></i>Preocupação com o cliente</li>
+                                <li><i class="fa fa-check-circle-o"></i>Ambiente agradável</li>
+                                <li><i class="fa fa-check-circle-o"></i>Profissionais excelentes</li>
+                                <li><i class="fa fa-check-circle-o"></i>Boa localização</li>
+                                <li><i class="fa fa-check-circle-o"></i>Qualidade de gestão</li>
+                                <li><i class="fa fa-check-circle-o"></i>Equipamentos tecnológicos</li>
+                                <li><i class="fa fa-check-circle-o"></i>Resultados</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Aboutus Section End -->
+
+    
+
+    <!-- Trainer Section Begin -->
+    <section class="trainer-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>Nossos Treinadores</h2>
+                        <p>Nosso treinador profissional e preparado para auxiliar e orientar novos integrantes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+            @foreach (var coach in Model)
+            {
+                <div class="col-lg-3 col-sm-6">
+                    <div class="trainer-item">
+                        <div class="ti-pic">
+                            <img src="@coach.Image" alt="">
+                            <div class="trainer-text">
+                                <h5>@coach.Name <span>- @coach.Description</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }    
+                
+            </div>
+        </div>
+    </section>
+    <!-- Trainer Section End -->
+
+    <!-- Cta Section Begin -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cta-text">
+                        <h3>Comece hoje!</h3>
+                        <p>Cuide de sua saúde com os melhores profissionais.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Cta Section End -->
