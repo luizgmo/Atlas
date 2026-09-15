@@ -80,7 +80,7 @@ namespace AtlasP.Data
             #region Populate Users
             var hash = new PasswordHasher<User>();
             byte[] avatarPic = File.ReadAllBytes(
-                Directory.GetCurrentDirectory() + @"\wwwroot\img\logo.png");
+                Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "logo.png"));
             var users = new List<User>(){
                 new User{
                     Id = Guid.NewGuid().ToString(),
