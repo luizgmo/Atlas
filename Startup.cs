@@ -69,6 +69,14 @@ namespace AtlasP
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
+            // Cria o schema do banco (tabelas + Identity) na primeira execução.
+            // O projeto não tem migrations, então usamos EnsureCreated().
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var contexto = scope.ServiceProvider.GetRequiredService<Contexto>();
+                contexto.Database.EnsureCreated();
+            }
         }
     }
 }
