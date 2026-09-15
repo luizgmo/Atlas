@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.IO.Compression;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
@@ -38,6 +40,18 @@ namespace AtlasP
                 .AddDefaultTokenProviders();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            // Compressao de respostas (Brotli/Gzip) - acarrega paginas mais rapido
+            services.AddResponseCompression(options =>
+            {
+                options.EnableForHttps = true;
+                options.Providers.Add<BrotliCompressionProvider>();
+                options.Providers.Add<GzipCompressionProvider>();
+                options.MimeTypes = ResponseCompressionDefaults.MimeTypes
+                    .Concat(new[] { "image/svg+xml", "application/javascript", "text/css" });
+            });
+            services.Configure<BrotliCompressionProviderOptions>(o => o.Level = CompressionLevel.Fastest);
+            services.Configure<GzipCompressionProviderOptions>(o => o.Level = CompressionLevel.Fastest);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,7 +69,18 @@ namespace AtlasP
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+
+            // Compressao antes de servir arquivos estaticos
+            app.UseResponseCompression();
+
+            // Cache de 7 dias para assets estaticos (imagens/css/js)
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                OnPrepareResponse = ctx =>
+                {
+                    ctx.Context.Response.Headers["Cache-Control"] = "public, max-age=604800";
+                }
+            });
 
             app.UseRouting();
 
